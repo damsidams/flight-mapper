@@ -1,0 +1,242 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background: linear-gradient(to right, #1f1f1f, #333333);
+  color: #e0e0e0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.status-indicators {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.status-indicator:hover {
+  transform: scale(1.1);
+}
+
+.status-indicator span {
+  color: white;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-dot.drone1 {
+  background-color: #00ff9d;
+  box-shadow: 0 0 10px #00ff9d;
+}
+
+.status-dot.drone2 {
+  background-color: #ff7b00;
+  box-shadow: 0 0 10px #ff7b00;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.map-container {
+  flex: 3;
+  height: 100%;
+  position: relative;
+}
+
+.info-panel {
+  flex: 1;
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.drone-info {
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  background-color: rgba(30, 30, 30, 0.6);
+  border-left: 4px solid transparent;
+  backdrop-filter: blur(5px);
+}
+
+.drone-info:nth-child(1) {
+  border-left-color: #00ff9d;
+}
+
+.drone-info:nth-child(2) {
+  border-left-color: #ff7b00;
+}
+
+.drone-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.drone-info h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: white;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.drone-info:nth-child(1) h2::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00ff9d;
+  box-shadow: 0 0 8px #00ff9d;
+  margin-right: 0.75rem;
+}
+
+.drone-info:nth-child(2) h2::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff7b00;
+  box-shadow: 0 0 8px #ff7b00;
+  margin-right: 0.75rem;
+}
+
+.coordinates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.coordinate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  padding: 0.25rem 0;
+}
+
+.coordinate span:first-child {
+  font-weight: 400;
+  color: #aaaaaa;
+}
+
+.coordinate span:last-child {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.footer {
+  background-color: #1f1f1f;
+  color: #888;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.loading, .error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.popup-content {
+  padding: 0.5rem;
+}
+
+.popup-content h3 {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.popup-content p {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+}
+
+.marker-icon {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  
+  .map-container {
+    flex: 2;
+  }
+  
+  .info-panel {
+    flex: 1;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  
+  .drone-info {
+    min-width: 200px;
+  }
+}
