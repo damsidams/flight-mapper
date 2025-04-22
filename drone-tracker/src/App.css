@@ -1,5 +1,5 @@
 /* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 * {
   box-sizing: border-box;
@@ -32,6 +32,48 @@ body {
 .header h1 {
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.control-btn {
+  background-color: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background-color: #4a4a4a;
+}
+
+.reset-btn {
+  background-color: #444;
+  color: #fff;
+}
+
+.reset-btn:hover {
+  background-color: #555;
+}
+
+.toggle-follow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-follow input {
+  margin-right: 0.25rem;
 }
 
 .status-indicators {
@@ -214,6 +256,7 @@ body {
 
 .marker-icon {
   animation: bounce 1s infinite;
+  transition: transform 0.5s ease;
 }
 
 @keyframes bounce {
@@ -222,6 +265,17 @@ body {
 }
 
 @media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .controls {
+    width: 100%;
+    justify-content: center;
+  }
+  
   .content {
     flex-direction: column;
   }
